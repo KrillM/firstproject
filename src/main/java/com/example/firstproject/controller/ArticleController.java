@@ -39,7 +39,7 @@ public class ArticleController {
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
 
-        return "";
+        return "redirect:/article/" + saved.getId();
     }
 
     @GetMapping("/article/{id}")
@@ -53,7 +53,7 @@ public class ArticleController {
         model.addAttribute("article", articleEntity);
 
         // 3. 뷰 페이지 반환
-        return "article/show";
+        return "article/show"; // 목록으로 돌아갈 링크를 넣을 뷰 파일 확인
     }
 
     @GetMapping("/article")
